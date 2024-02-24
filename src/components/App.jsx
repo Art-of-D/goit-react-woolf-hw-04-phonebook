@@ -8,20 +8,20 @@ import { useEffect, useState } from 'react';
 export const App = () => {
   const [contacts, setContacts] = useState([]);
   const [filter, setFilter] = useState('');
+  const [startup, setStartup] = useState(true);
   const KEY_WORD = 'contacts';
 
   useEffect(() => {
-    const temp = JSON.parse(localStorage.getItem(KEY_WORD));
-    if (temp != null) {
-      setContacts(temp);
-    }
-  }, []);
-
-  useEffect(() => {
-    if (contacts.length > 0) {
+    if (startup) {
+      const temp = JSON.parse(localStorage.getItem(KEY_WORD));
+      if (temp != null) {
+        setContacts(temp);
+        setStartup(false);
+      }
+    } else {
       localStorage.setItem(KEY_WORD, JSON.stringify(contacts));
     }
-  }, [contacts]);
+  }, [contacts, startup]);
 
   const addContact = ({ name: newName, number }) => {
     if (
