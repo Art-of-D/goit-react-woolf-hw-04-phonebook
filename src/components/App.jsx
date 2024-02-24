@@ -37,7 +37,7 @@ export const App = () => {
       number: number,
     };
 
-    setContacts([...contacts, newContact]);
+    setContacts(prevContacts => [...prevContacts, newContact]);
   };
 
   const addFilter = newFilter => {
