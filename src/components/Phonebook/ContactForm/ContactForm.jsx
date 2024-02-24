@@ -33,7 +33,7 @@ export const ContactForm = ({ addContact }) => {
         value={number}
         onChange={e => setNumber(e.target.value)}
         pattern="^(\+\d{1,3}\s?)?(\(\d{1,4}\)|\d{1,4})[\s\-]?\d{1,18}$"
-        title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
+        title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +. For example +380(123)4321212"
         required
       />
       <PhonebookInputButton
