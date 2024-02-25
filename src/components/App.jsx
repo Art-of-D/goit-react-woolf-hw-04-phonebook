@@ -8,7 +8,7 @@ import { useEffect, useState } from 'react';
 export const App = () => {
   const KEY_WORD = 'contacts';
   const [contacts, setContacts] = useState(
-    JSON.parse(localStorage.getItem(KEY_WORD))
+    JSON.parse(localStorage.getItem(KEY_WORD)) || []
   );
   const [filter, setFilter] = useState('');
 
